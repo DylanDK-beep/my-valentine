@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Be My Valentine?</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: pink;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            position: relative;
+            overflow: hidden; /* Prevents scrolling */
+        }
+        h1 {
+            font-size: 2em;
+            color: red;
+        }
+        .button-container {
+            position: relative;
+            margin-top: 20px;
+        }
+        .btn {
+            padding: 15px 30px;
+            font-size: 18px;
+            border: none;
+            cursor: pointer;
+            transition: 0.3s;
+            position: absolute;
+        }
+        #yes {
+            background-color: red;
+            color: white;
+            border-radius: 10px;
+        }
+        #no {
+            background-color: gray;
+            color: white;
+            border-radius: 10px;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Will you be my Valentine? ❤</h1>
+    
+    <div class="button-container">
+        <button id="yes" class="btn" onclick="alert('Yay! ❤')">Yes</button>
+        <button id="no" class="btn" onmouseover="moveNoButton()">No</button>
+    </div>
+
+    <script>
+        let yesButton = document.getElementById("yes");
+        let noButton = document.getElementById("no");
+        let yesSize = 18; // Initial font size of "Yes" button
+
+        function moveNoButton() {
+            let maxWidth = window.innerWidth - noButton.clientWidth - 20;
+            let maxHeight = window.innerHeight - noButton.clientHeight - 20;
+
+            let randomX = Math.random() * maxWidth;
+            let randomY = Math.random() * maxHeight;
+
+            noButton.style.left = ${randomX}px;
+            noButton.style.top = ${randomY}px;
+
+            // Increase "Yes" button size
+            yesSize += 5;
+            yesButton.style.fontSize = yesSize + "px";
+            yesButton.style.padding = ${yesSize / 2}px ${yesSize}px;
+        }
+    </script>
+
+</body>
+</html>
